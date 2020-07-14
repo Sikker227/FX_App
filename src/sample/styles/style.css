@@ -1,0 +1,28 @@
+.text-input {
+    -fx-text-fill: #000000;
+    -fx-background-color: #FFFFE0;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10;
+    -fx-padding: 10 10;
+}
+
+.text-input:focused {
+    -fx-border-color: #32CD32;
+}
+
+.link:hover {
+    -fx-text-fill: #32CD32;
+}
+
+.button {
+    -fx-background-color: #FF4500;
+    -fx-border-radius: 10;
+    -fx-padding: 10 10;
+}
+
+.button:hover {
+    -fx-translate-y: -3;
+}
+.button:pressed {
+    -fx-background-color: #FFA500;
+}
