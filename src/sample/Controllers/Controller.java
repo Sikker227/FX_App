@@ -1,6 +1,8 @@
 package sample.Controllers;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import sample.DB;
+import sample.User;
 
 public class Controller {
 
@@ -111,7 +114,13 @@ public class Controller {
             try {
                 boolean isAuth = db.userAuth(login_auth.getCharacters().toString(), pass);
                 if (isAuth) {
+                    FileOutputStream fos = new FileOutputStream("User.settings");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(new User(login_auth.getCharacters().toString()));
+                    oos.close();
+
                     db.getId(login_auth.getCharacters().toString());
+
                     login_auth.setText("");
                     pass_auth.setText("");
                     btn_auth.setText("Готово");
@@ -123,7 +132,7 @@ public class Controller {
                     login_auth.setStyle("-fx-border-color: red");
                     pass_auth.setStyle("-fx-border-color: red");
                 }
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
 
@@ -153,7 +162,7 @@ public class Controller {
         btn_reg.getScene().getWindow().hide();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample/scene/user_cab.fxml"));
+        loader.setLocation(getClass().getResource("/sample/scene/news.fxml"));
 
         try {
             loader.load();

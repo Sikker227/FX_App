@@ -75,5 +75,24 @@ public class DB {
         prSt.executeUpdate();
         return true;
     }
+
+    public ResultSet getAll() throws SQLException, ClassNotFoundException{
+        String sql = "SELECT `title`, `intro` FROM `articles`";
+        Statement statement = getDbConn().createStatement();
+        ResultSet res = statement.executeQuery(sql);
+        return res;
+
     }
+
+    public void addArt(String title, String intro, String text) throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO `articles` (`title`, `intro`, `text`, `views`) VALUES(?, ?, ?, ?)";
+        PreparedStatement prSt = getDbConn().prepareStatement(sql);
+        prSt.setString(1, title);
+        prSt.setString(2, intro);
+        prSt.setString(3, text);
+        prSt.setInt(4, 15);
+        prSt.executeUpdate();
+
+    }
+}
 

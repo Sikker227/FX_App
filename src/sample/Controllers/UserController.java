@@ -1,14 +1,20 @@
 package sample.Controllers;
 
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.DB;
 
 
@@ -28,7 +34,7 @@ public class UserController {
     private Button newData_btn;
 
     @FXML
-    private Button exit_btn;
+    private Button news_btn;
 
     private DB db = new DB();
 
@@ -73,9 +79,21 @@ public class UserController {
             }
 
         });
-//        exit_btn.setOnAction(event -> {
-//            exitWindow();
-//        });
+        news_btn.setOnAction(event -> {
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/sample/scene/news.fxml"));
+                Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                primaryStage.setTitle("Какая-то программа");
+                primaryStage.setScene(new Scene(root, 600, 400));
+                primaryStage.show();
+                primaryStage.setResizable(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
     }
 
     public static String md5String(String pass) throws NoSuchAlgorithmException {
@@ -95,22 +113,4 @@ public class UserController {
         return md5Hex;
     }
 
-//    public void exitWindow() {
-//        exit_btn.getScene().getWindow().hide();
-//
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation(getClass().getResource("/sample/scene/sample.fxml"));
-//
-//        try {
-//            loader.load();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        Parent root = loader.getRoot();
-//        Stage stage = new Stage();
-//        stage.setScene(new Scene(root));
-//        stage.showAndWait();
-//
-//    }
 }
