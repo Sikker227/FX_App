@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.readPostController">
+   <children>
+      <Label fx:id="title" layoutX="31.0" layoutY="26.0" prefHeight="36.0" prefWidth="282.0" style="-fx-background-color: #FFDEAD; -fx-background-radius: 10; -fx-padding: 5 5;" text="Название статьи">
+         <font>
+            <Font name="Bebas Neue Regular" size="28.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="paneText" focusTraversable="false" hbarPolicy="NEVER" layoutY="70.0" prefHeight="333.0" prefWidth="600.0" style="-fx-background-color: #FFFFE0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <content>
+            <Label fx:id="text" alignment="TOP_LEFT" focusTraversable="false" prefHeight="298.0" prefWidth="599.0" style="-fx-background-color: #FFFFE0; -fx-padding: 20 20;" text="Label">
+               <font>
+                  <Font name="Bebas Neue Book" size="15.0" />
+               </font>
+            </Label>
+         </content>
+      </ScrollPane>
+      <Button fx:id="exit_btn" layoutX="517.0" layoutY="34.0" mnemonicParsing="false" style="-fx-padding: 5 5;" stylesheets="@../styles/style.css" text="Назад" textFill="WHITE">
+         <font>
+            <Font name="Bebas Neue Book" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

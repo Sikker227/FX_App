@@ -19,12 +19,12 @@
                 <Font name="Bebas Neue Book" size="14.0" />
             </font>
         </TextField>
-      <TextArea fx:id="intro_field" focusTraversable="false" layoutX="28.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0" promptText="Анонс статьи" style="-fx-control-inner-background: #FFFFE0; -fx-prompt-text-fill: #a1a1a1;" styleClass="text-input" stylesheets="@../styles/text-area.css" AnchorPane.leftAnchor="45.0">
+      <TextArea fx:id="text_field" focusTraversable="false" layoutX="28.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0" promptText="Текст статьи" style="-fx-control-inner-background: #FFFFE0; -fx-prompt-text-fill: #a1a1a1;" styleClass="text-input" stylesheets="@../styles/text-area.css" AnchorPane.leftAnchor="45.0">
          <font>
             <Font name="Bebas Neue Book" size="17.0" />
          </font>
       </TextArea>
-      <TextArea fx:id="text_field" focusTraversable="false" layoutX="356.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0" promptText="Анонс статьи" style="-fx-control-inner-background: #FFFFE0; -fx-prompt-text-fill: #a1a1a1;" styleClass="text-input" stylesheets="@../styles/text-area.css" AnchorPane.rightAnchor="45.0">
+      <TextArea fx:id="intro_field" focusTraversable="false" layoutX="356.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0" promptText="Анонс статьи" style="-fx-control-inner-background: #FFFFE0; -fx-prompt-text-fill: #a1a1a1;" styleClass="text-input" stylesheets="@../styles/text-area.css" AnchorPane.rightAnchor="45.0">
          <font>
             <Font name="Bebas Neue Book" size="17.0" />
          </font>

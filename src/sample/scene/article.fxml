@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="600.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="600.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="title" alignment="TOP_LEFT" layoutX="4.0" layoutY="4.0" prefHeight="38.0" prefWidth="343.0" style="-fx-padding: 0 20; -fx-background-radius: 10; -fx-background-color: #FFDEAD;" text="Новая Статья" textAlignment="CENTER" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="246.0">
+      <Label fx:id="title" alignment="TOP_LEFT" layoutX="4.0" layoutY="4.0" prefHeight="38.0" prefWidth="343.0" style="-fx-padding: 5 10; -fx-background-radius: 10; -fx-background-color: #FFDEAD;" text="Новая Статья" textAlignment="CENTER" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="246.0">
          <font>
             <Font name="Bebas Neue Regular" size="30.0" />
          </font>

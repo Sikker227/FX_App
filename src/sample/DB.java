@@ -42,6 +42,7 @@ public class DB {
     }
 
     public static String id;
+    public static String ID;
 
     public void getId(String login) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM `users` WHERE `login` = '" + login + "'";
@@ -84,6 +85,7 @@ public class DB {
 
     }
 
+
     public void addArt(String title, String intro, String text) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO `articles` (`title`, `intro`, `text`, `views`) VALUES(?, ?, ?, ?)";
         PreparedStatement prSt = getDbConn().prepareStatement(sql);
@@ -93,6 +95,33 @@ public class DB {
         prSt.setInt(4, 15);
         prSt.executeUpdate();
 
+    }
+
+    public void getPostId(String title) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT * FROM `articles` WHERE `title` = '" + title + "'";
+        Statement statement = getDbConn().createStatement();
+        ResultSet res = statement.executeQuery(sql);
+        while(res.next()) {
+            ID = res.getString("id");
+        }
+    }
+    public String getTitle(String title) throws SQLException, ClassNotFoundException{
+        String sql = "SELECT `title` FROM `articles`WHERE `id` = '" + ID + "'";
+        Statement statement = getDbConn().createStatement();
+        ResultSet t1 = statement.executeQuery(sql);
+        while(t1.next()) {
+            title = t1.getString("title");
+        }
+        return title;
+    }
+    public String getText(String text) throws SQLException, ClassNotFoundException{
+        String sql = "SELECT `text` FROM `articles`WHERE `id` = '" + ID + "'";
+        Statement statement = getDbConn().createStatement();
+        ResultSet t2 = statement.executeQuery(sql);
+        while(t2.next()) {
+            text = t2.getString("text");
+        }
+        return text;
     }
 }
 

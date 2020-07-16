@@ -1,13 +1,10 @@
 package sample.Controllers;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -23,12 +20,6 @@ import sample.DB;
 import sample.User;
 
 public class NewsController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button user_cab, btn_add;
@@ -58,24 +49,43 @@ public class NewsController {
                 intro.setText(res.getString("intro"));
 
                 final Node nodeSet = node;
+
                 node.setOnMouseEntered(event -> {
-                    nodeSet.setStyle("-fx-background-color: #FBC988");
+                    nodeSet.setStyle("-fx-background-color: #F8F8C4");
+                });
+
+                node.setOnMouseClicked(event -> {
+                    String text = title.getText();
+                    try {
+                        db.getPostId(text);
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("/sample/scene/readPost.fxml"));
+                            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            primaryStage.setTitle("Какая-то программа");
+                            primaryStage.setScene(new Scene(root, 600, 400));
+                            primaryStage.show();
+                            primaryStage.setResizable(false);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLException | ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 });
                 node.setOnMouseExited(event -> {
                     nodeSet.setStyle("-fx-background-color: #FFFFE0");
                 });
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            HBox hBox = new HBox();
-            hBox.getChildren().add(node);
-            hBox.setAlignment(Pos.BASELINE_CENTER);
-            paneVbox.getChildren().add(hBox);
+            HBox hbox = new HBox();
+            hbox.getChildren().add(node);
+            hbox.setAlignment(Pos.BASELINE_CENTER);
+            paneVbox.getChildren().add(hbox);
             paneVbox.setSpacing(10);
+
         }
-
-
         btn_exit.setOnAction(event -> {
             FileOutputStream fos = null;
             try {
@@ -127,3 +137,4 @@ public class NewsController {
         });
     }
 }
+
